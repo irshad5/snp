@@ -3,52 +3,148 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="SNP Pharmaceutical Private Limited - Trusted healthcare and pharmaceutical solutions">
-  <title>SNP Pharmaceutical Pvt. Ltd.</title>
-  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
+  <title>SNP Pharmaceutical Pvt Ltd</title>
   <style>
-    body { font-family: 'Roboto', sans-serif; margin: 0; padding: 0; color: #333; }
-    header { background: #004080; color: #fff; text-align: center; padding: 2rem 1rem; }
-    header h1 { margin: 0; font-size: 2.5rem; }
-    header p { margin-top: 0.5rem; font-size: 1.2rem; }
-    nav { background: #003366; padding: 0.5rem; text-align: center; }
-    nav a { color: #fff; margin: 0 1rem; text-decoration: none; font-weight: 500; }
-    section { padding: 3rem 1.5rem; max-width: 1000px; margin: auto; }
-    section h2 { color: #004080; margin-bottom: 1rem; }
-    .about, .contact { background: #f9f9f9; border-radius: 10px; padding: 2rem; box-shadow: 0 2px 5px rgba(0,0,0,0.1); }
-    .contact p { margin: 0.5rem 0; }
-    footer { background: #004080; color: #fff; text-align: center; padding: 1rem; margin-top: 2rem; }
+    body { font-family: Arial, sans-serif; margin: 0; padding: 0; }
+    header { background: #0073aa; color: white; padding: 20px; text-align: center; }
+    nav { background: #005f8d; padding: 10px; text-align: center; }
+    nav a { color: white; margin: 0 15px; text-decoration: none; font-weight: bold; }
+    nav a:hover { text-decoration: underline; }
+    section { padding: 40px; max-width: 1000px; margin: auto; }
+    h2 { color: #0073aa; }
+    .product-category { margin-bottom: 40px; }
+    .slider-container { position: relative; }
+    .slider { display: flex; overflow-x: auto; scroll-behavior: smooth; gap: 15px; padding: 10px; }
+    .slider img { height: 180px; border-radius: 8px; border: 1px solid #ddd; flex: 0 0 auto; }
+    .arrow {
+      position: absolute; top: 50%; transform: translateY(-50%);
+      background: rgba(0,0,0,0.5); color: white; border: none;
+      font-size: 24px; cursor: pointer; padding: 10px; border-radius: 50%;
+    }
+    .arrow.left { left: 5px; }
+    .arrow.right { right: 5px; }
+    details { margin: 10px 0; padding: 10px; background: #f9f9f9; border: 1px solid #ddd; border-radius: 8px; }
+    details summary { font-weight: bold; cursor: pointer; color: #0073aa; }
+    form { background: #f9f9f9; padding: 20px; border-radius: 8px; border: 1px solid #ddd; }
+    form input, form textarea { width: 100%; padding: 10px; margin: 8px 0; border: 1px solid #ccc; border-radius: 5px; }
+    form button { background: #0073aa; color: white; border: none; padding: 10px 20px; border-radius: 5px; cursor: pointer; }
+    form button:hover { background: #005f8d; }
+    footer { background: #333; color: white; text-align: center; padding: 20px; margin-top: 40px; }
   </style>
 </head>
 <body>
-  <header>
-    <h1>SNP Pharmaceutical Private Limited</h1>
-    <p>Trusted Partner in Healthcare & Pharmaceutical Solutions</p>
-  </header>
 
-  <nav>
-    <a href="#about">About Us</a>
-    <a href="#contact">Contact</a>
-  </nav>
+<header>
+  <h1>SNP Pharmaceutical Private Limited</h1>
+  <p>Trusted Partner in Healthcare & Pharmaceutical Solutions</p>
+</header>
 
-  <section id="about" class="about">
-    <h2>About Us</h2>
-    <p>
-      SNP Pharmaceutical Private Limited is committed to delivering high-quality healthcare products and pharmaceutical solutions.
-      With a focus on innovation, safety, and trust, we aim to improve the well-being of communities by providing reliable medicines.
-    </p>
-  </section>
+<nav>
+  <a href="#about">About Us</a>
+  <a href="#products">Products</a>
+  <a href="#contact">Contact</a>
+</nav>
 
-  <section id="contact" class="contact">
-    <h2>Contact Us</h2>
-    <p><strong>Email:</strong> info.snppharmaceutical@gmail.com</p>
-    <p><strong>Phone:</strong> +91 8527603563</p>
-    <p><strong>Address:</strong> H No 103 G No 1 E/2 Block Jagmal Enclave, Agwanpur, Faridabad, Haryana 121003</p>
-    <p><strong>Website:</strong> <a href="http://www.snppharmaceutical.com" target="_blank">www.snppharmaceutical.com</a></p>
-  </section>
+<section id="about">
+  <h2>About Us</h2>
+  <p>SNP Pharmaceutical Private Limited is committed to delivering high-quality healthcare products and pharmaceutical solutions. With a focus on innovation, safety, and trust, we aim to improve the well-being of communities by providing reliable medicines.</p>
+</section>
 
-  <footer>
-    <p>&copy; 2025 SNP Pharmaceutical Private Limited. All Rights Reserved.</p>
-  </footer>
+<section id="products">
+  <h2>Our Products</h2>
+
+  <!-- Syrups -->
+  <div class="product-category">
+    <h3>Syrups</h3>
+    <div class="slider-container">
+      <button class="arrow left" onclick="scrollSlider(this, -300)">&#10094;</button>
+      <div class="slider">
+        <img src="images/snpzyme.jpg" alt="SNPZYME Syrup">
+        <img src="images/aminoedge.jpg" alt="AminoEdge 9+ Syrup">
+        <img src="images/spancidox.jpg" alt="Spanci Dox Dry Syrup">
+      </div>
+      <button class="arrow right" onclick="scrollSlider(this, 300)">&#10095;</button>
+    </div>
+    <details><summary>SNPZYME Syrup</summary><p>Description of SNPZYME Syrup.</p></details>
+    <details><summary>AminoEdge 9+ Syrup</summary><p>Description of AminoEdge 9+ Syrup.</p></details>
+    <details><summary>Spanci Dox Dry Syrup</summary><p>Description of Spanci Dox Dry Syrup.</p></details>
+  </div>
+
+  <!-- Tablets -->
+  <div class="product-category">
+    <h3>Tablets</h3>
+    <div class="slider-container">
+      <button class="arrow left" onclick="scrollSlider(this, -300)">&#10094;</button>
+      <div class="slider">
+        <img src="images/snpres-mf.jpg" alt="SNPREST-MF Tab">
+        <img src="images/spanciclav.jpg" alt="SPAN CICLAV CV 625 Tab">
+        <img src="images/spancixef.jpg" alt="SPAN CIXEF 200 Tab">
+        <img src="images/snpresicp.jpg" alt="SNPRESIC-P Tab">
+        <img src="images/snpresicsp.jpg" alt="SNPRESIC-SP Tab">
+        <img src="images/shpkast.jpg" alt="SHPKAST-L Tab">
+        <img src="images/rabprashield20.jpg" alt="RABPRASHIELD-20mg Tab">
+      </div>
+      <button class="arrow right" onclick="scrollSlider(this, 300)">&#10095;</button>
+    </div>
+    <details><summary>SNPREST-MF Tab</summary><p>Description of SNPREST-MF Tab.</p></details>
+    <details><summary>SPAN CICLAV CV 625 Tab</summary><p>Description of SPAN CICLAV CV 625 Tab.</p></details>
+    <details><summary>SPAN CIXEF 200 Tab (100mg/200mg)</summary><p>Description of SPAN CIXEF 200 Tab.</p></details>
+    <details><summary>SNPRESIC-P Tab</summary><p>Description of SNPRESIC-P Tab.</p></details>
+    <details><summary>SNPRESIC-SP Tab</summary><p>Description of SNPRESIC-SP Tab.</p></details>
+    <details><summary>SHPKAST-L Tab</summary><p>Description of SHPKAST-L Tab.</p></details>
+    <details><summary>RABPRASHIELD-20mg Tab</summary><p>Description of RABPRASHIELD-20mg Tab.</p></details>
+  </div>
+
+  <!-- Capsules -->
+  <div class="product-category">
+    <h3>Capsules</h3>
+    <div class="slider-container">
+      <button class="arrow left" onclick="scrollSlider(this, -300)">&#10094;</button>
+      <div class="slider">
+        <img src="images/rabprashield-dsr.jpg" alt="RABPRASHIELD-DSR Capsule">
+      </div>
+      <button class="arrow right" onclick="scrollSlider(this, 300)">&#10095;</button>
+    </div>
+    <details><summary>RABPRASHIELD-DSR Capsule</summary><p>Description of RABPRASHIELD-DSR Capsule.</p></details>
+  </div>
+
+</section>
+
+<section id="contact">
+  <h2>Contact Us</h2>
+  <p><strong>Email:</strong> info.snppharmaceutical@gmail.com</p>
+  <p><strong>Phone:</strong> +91 8527603563</p>
+  <p><strong>Address:</strong> H No 103 G No 1 E/2 Block Jagmal Enclave, Agwanpur, Faridabad, Haryana 121003</p>
+  <p><strong>Website:</strong> www.snppharmaceutical.com</p>
+
+  <h3>Enquiry Form</h3>
+  <form action="mailto:info.snppharmaceutical@gmail.com" method="post" enctype="text/plain">
+    <label for="name">Name:</label>
+    <input type="text" id="name" name="name" required>
+
+    <label for="email">Email:</label>
+    <input type="email" id="email" name="email" required>
+
+    <label for="phone">Phone:</label>
+    <input type="text" id="phone" name="phone">
+
+    <label for="message">Message:</label>
+    <textarea id="message" name="message" rows="5" required></textarea>
+
+    <button type="submit">Send Enquiry</button>
+  </form>
+</section>
+
+<footer>
+  <p>&copy; 2025 SNP Pharmaceutical Pvt Ltd. All Rights Reserved.</p>
+</footer>
+
+<script>
+function scrollSlider(button, amount) {
+  const slider = button.parentElement.querySelector('.slider');
+  slider.scrollBy({ left: amount, behavior: 'smooth' });
+}
+</script>
+
 </body>
 </html>
