@@ -25,6 +25,7 @@
       font-family: 'Poppins', sans-serif;
     }
 
+
     body {
       background: #ffffff;
       color: var(--dark);
@@ -149,29 +150,62 @@
     }
 
     /* ================= PRODUCTS ================= */
-    .products {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-      gap: 30px;
-    }
+   .product-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 30px;
+}
 
-    .product-card {
-      background: white;
-      border-radius: 15px;
-      padding: 25px;
-      box-shadow: 0 10px 30px rgba(0,0,0,0.05);
-      transition: transform 0.3s;
-      text-align: center;
-    }
+.product-box {
+  background: #fff;
+  border-radius: 15px;
+  padding: 25px;
+  text-align: center;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.06);
+  transition: transform 0.3s ease;
+}
 
-    .product-card:hover {
-      transform: translateY(-8px);
-    }
+.product-box:hover {
+  transform: translateY(-8px);
+}
 
-    .product-card img {
-      width: 80px;
-      margin-bottom: 15px;
-    }
+.product-box img {
+  width: 100%;
+  height: 180px;
+  object-fit: contain;
+  margin-bottom: 15px;
+}
+
+.product-box h3 {
+  font-size: 18px;
+  margin-bottom: 8px;
+  color: var(--primary);
+}
+
+.product-box p {
+  font-size: 14px;
+  color: var(--gray);
+  margin-bottom: 15px;
+}
+
+.btn.small {
+  padding: 8px 22px;
+  font-size: 14px;
+}
+
+/* Responsive */
+@media (max-width: 992px) {
+  .product-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 576px) {
+  .product-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
 
     /* ================= QUALITY ================= */
     .quality {
@@ -224,7 +258,15 @@
     @media(max-width: 768px) {
       .hero h1 { font-size: 32px; }
     }
-    /* ================= HERO SLIDER ================= */
+    /* ================= WhatsApp ================= */
+		.btn.whatsapp {
+	  background: #25D366;
+	}
+
+	.btn.whatsapp:hover {
+	  background: #1ebe5d;
+	}
+/* ================= HERO SLIDER ================= */
     .hero-slider {
       position: relative;
       height: 85vh;
@@ -267,6 +309,7 @@
       margin: auto;
       margin-bottom: 30px;
     }
+	
 
 </style>
 </head>
@@ -287,20 +330,30 @@
 
 <section class="hero-slider">
   <div class="slides">
+  
     <div class="slide active" style="background-image: linear-gradient(rgba(10,77,162,0.85), rgba(10,77,162,0.85)), url('https://images.unsplash.com/photo-1582719478250-c89cae4dc85b');">
-      <div class="hero-content">
+    
+	  <div class="hero-content">
         <h1>Trusted Healthcare Solutions</h1>
         <p>Delivering high-quality pharmaceutical products with innovation, safety, and care.</p>
         <a href="#products" class="btn">Explore Products</a>
       </div>
     </div>
-    <div class="slide" style="background-image: linear-gradient(rgba(10,77,162,0.85), rgba(10,77,162,0.85)), url('https://images.unsplash.com/photo-1580281657521-6c4d5c2f8b77');">
+	<div class="slide" style="background-image: linear-gradient(rgba(10,77,162,0.85), rgba(10,77,162,0.85)), url('images/aceclopfenac_tab.jpeg');">
+	  <div class="hero-content">
+		<h1>New Product Launch</h1>
+		<p>Advanced formulations for modern healthcare needs.</p>
+		<a href="#contact" class="btn">Enquire Now</a>
+	  </div>
+	</div>
+    <div class="slide" style="background-image: linear-gradient(rgba(10,77,162,0.85), rgba(10,77,162,0.85)), url('images/allProduct.jpeg');">
       <div class="hero-content">
-        <h1>New Product Launch</h1>
-        <p>Advanced formulations for modern healthcare needs.</p>
+        <h1>Our Products</h1>
+        <p hidden>Advanced formulations for modern healthcare needs.</p>
         <a href="#contact" class="btn">Enquire Now</a>
       </div>
     </div>
+	
     <div class="slide" style="background-image: linear-gradient(rgba(10,77,162,0.85), rgba(10,77,162,0.85)), url('https://images.unsplash.com/photo-1576671081837-49000212a370');">
       <div class="hero-content">
         <h1>Quality You Can Trust</h1>
@@ -330,27 +383,125 @@
   <div class="container">
     <div class="section-title">
       <h2>Our Products</h2>
-      <p>High quality pharmaceutical range</p>
+      <p>Complete pharmaceutical product range</p>
     </div>
-    <div class="products">
-      <div class="product-card">
-        <img src="https://img.icons8.com/fluency/96/pill.png" />
-        <h3>Tablets</h3>
-        <p>Effective and safe formulations</p>
+
+    <div class="product-grid">
+
+      <!-- Product 1 -->
+      <div class="product-box">
+        <img src="images/products/aceclopfenac_tab.jpeg" alt="Aceclofenac Tablets">
+        <h3>Aceclofenac Tablets</h3>
+        <p>SNPgesic-P</p>
+		<a href="https://wa.me/8527603563?text=Hi Please provide more details"
+		  class="btn small whatsapp"
+		  target="_blank"
+		>
+		  WhatsApp
+		</a>
       </div>
-      <div class="product-card">
-        <img src="https://img.icons8.com/fluency/96/syringe.png" />
-        <h3>Syrups</h3>
-        <p>Easy to consume liquid medicines</p>
+
+      <!-- Product 2 -->
+      <div class="product-box">
+        <img src="images/products/amino_syrup.jpeg" alt="AminoEdge">
+        <h3>AminoEdge</h3>
+        <p>Amino Acid with Antioxidants Syrup</p>
+		<a href="https://wa.me/8527603563?text=Hi Please provide more details"
+		  class="btn small whatsapp"
+		  target="_blank"
+		>
+		  WhatsApp
+		</a>
       </div>
-      <div class="product-card">
-        <img src="https://img.icons8.com/fluency/96/capsule.png" />
-        <h3>Capsules</h3>
-        <p>Advanced dosage solutions</p>
+
+      <!-- Product 3 -->
+      <div class="product-box">
+        <img src="images/products/amoxycillin_tab.jpeg" alt="amoxycillin Tablets">
+        <h3>Amoxycillin And Pottasium Tablets</h3>
+        <p>SPANCICLAV CV-625</p>
+		<a href="https://wa.me/8527603563?text=Hi Please provide more details"
+		  class="btn small whatsapp"
+		  target="_blank"
+		>
+		  WhatsApp
+		</a>
       </div>
+
+      <!-- Product 4 -->
+      <div class="product-box">
+        <img src="images/products/montelukast_tab.jpeg" alt="montelukast Tablets">
+        <h3>Montelukast Tablets</h3>
+        <p>SNPkast-L</p>
+		<a href="https://wa.me/8527603563?text=Hi Please provide more details"
+		  class="btn small whatsapp"
+		  target="_blank">
+		  WhatsApp
+		</a>
+      </div>
+
+      <!-- Product 5 -->
+      <div class="product-box">
+        <img src="images/products/rabeprazole_capsules.jpeg" alt="Rebeprazole Sodium(EC) & Domperidone (SR) Capsules">
+        <h3>Rebeprazole Sodium(EC) & Domperidone (SR) Capsules</h3>
+        <p>Rabprashield DSR</p>
+		<a href="https://wa.me/8527603563?text=Hi Please provide more details"
+		  class="btn small whatsapp"
+		  target="_blank">
+		  WhatsApp
+		</a>
+      </div>
+
+      <!-- Product 6 -->
+      <div class="product-box">
+        <img src="images/products/rabeprazole_tab2.jpeg" alt="rabeprazole Tablets">
+        <h3>Rabeprazole Tablets IP 25mg</h3>
+        <p>Rabprashield-20</p>
+		<a href="https://wa.me/8527603563?text=Hi Please provide more details"
+		  class="btn small whatsapp"
+		  target="_blank">
+		  WhatsApp
+		</a>
+      </div>
+
+      <!-- Product 7 -->
+      <div class="product-box">
+        <img src="images/products/aceclopfenac_tab.jpeg" alt="Aceclofenac Tablets">
+        <h3>Aceclofenac Paracetamol Tablets</h3>
+        <p>SNPgesic-P</p>
+		<a href="https://wa.me/8527603563?text=Hi Please provide more details"
+		  class="btn small whatsapp"
+		  target="_blank">
+		  WhatsApp
+		</a>
+      </div>
+
+      <!-- Product 8 -->
+      <div class="product-box">
+        <img src="images/products/snp_zyme_syrup.jpeg" alt="SNPZYME Syrup">
+        <h3>SNPZYME Syrup</h3>
+        		<a href="https://wa.me/8527603563?text=Hi Please provide more details"
+		  class="btn small whatsapp"
+		  target="_blank">
+		  WhatsApp
+		</a>
+      </div>
+
+      <!-- Product 9 -->
+      <div class="product-box">
+        <img src="images/products/spancidox_syrup.jpeg" alt="Spaincidox Dry Syrup">
+        <h3>Cefdomoxime Proxetil</h3>
+        <p>Spaincidox Dry Syrup</p>
+		<a href="https://wa.me/8527603563?text=Hi Please provide more details"
+		  class="btn small whatsapp"
+		  target="_blank">
+		  WhatsApp
+		</a>
+      </div>
+	  
     </div>
   </div>
 </section>
+
 
 <section id="quality" class="quality">
   <div class="container">
