@@ -1,159 +1,564 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <link rel="icon" type="image/x-icon" href="favicon.ico">
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>SNP Pharmaceutical Pvt Ltd</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>SNP Pharmaceutical</title>
+  <meta name="description" content="SNP Pharmaceutical – Trusted Healthcare Solutions and Quality Medicines" />
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
   <style>
-    body { font-family: Arial, sans-serif; margin: 0; padding: 0; }
-    header { background: #0073aa; color: white; padding: 20px; text-align: center; }
-    nav { background: #005f8d; padding: 10px; text-align: center; }
-    nav a { color: white; margin: 0 15px; text-decoration: none; font-weight: bold; }
-    nav a:hover { text-decoration: underline; }
-    section { padding: 40px; max-width: 1000px; margin: auto; }
-    h2 { color: #0073aa; }
-    .product-category { margin-bottom: 40px; }
-    .slider-container { position: relative; }
-    .slider { display: flex; overflow-x: auto; scroll-behavior: smooth; gap: 15px; padding: 10px; }
-    .slider img { height: 180px; border-radius: 8px; border: 1px solid #ddd; flex: 0 0 auto; }
-    .arrow {
-      position: absolute; top: 50%; transform: translateY(-50%);
-      background: rgba(0,0,0,0.5); color: white; border: none;
-      font-size: 24px; cursor: pointer; padding: 10px; border-radius: 50%;
+    :root {
+      --primary: #0a4da2;
+      --secondary: #0fb9b1;
+      --light: #f5f9ff;
+      --dark: #1f2937;
+      --gray: #6b7280;
     }
-    .arrow.left { left: 5px; }
-    .arrow.right { right: 5px; }
-    details { margin: 10px 0; padding: 10px; background: #f9f9f9; border: 1px solid #ddd; border-radius: 8px; }
-    details summary { font-weight: bold; cursor: pointer; color: #0073aa; }
-    form { background: #f9f9f9; padding: 20px; border-radius: 8px; border: 1px solid #ddd; }
-    form input, form textarea { width: 100%; padding: 10px; margin: 8px 0; border: 1px solid #ccc; border-radius: 5px; }
-    form button { background: #0073aa; color: white; border: none; padding: 10px 20px; border-radius: 5px; cursor: pointer; }
-    form button:hover { background: #005f8d; }
-    footer { background: #333; color: white; text-align: center; padding: 20px; margin-top: 40px; }
-  </style>
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Poppins', sans-serif;
+    }
+
+
+    body {
+      background: #ffffff;
+      color: var(--dark);
+      line-height: 1.6;
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    /* ================= HEADER ================= */
+    header {
+      background: #ffffff;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+    }
+
+    .nav {
+      max-width: 1200px;
+      margin: auto;
+      padding: 15px 20px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .logo {
+      font-size: 22px;
+      font-weight: 700;
+      color: var(--primary);
+    }
+
+    .nav ul {
+      display: flex;
+      list-style: none;
+      gap: 25px;
+    }
+
+    .nav ul li a {
+      font-weight: 500;
+      transition: color 0.3s;
+    }
+
+    .nav ul li a:hover {
+      color: var(--primary);
+    }
+
+    /* ================= HERO ================= */
+    .hero {
+      background: linear-gradient(rgba(10,77,162,0.9), rgba(10,77,162,0.9)), url('https://images.unsplash.com/photo-1582719478250-c89cae4dc85b') center/cover;
+      color: white;
+      padding: 100px 20px;
+      text-align: center;
+    }
+
+    .hero h1 {
+      font-size: 42px;
+      margin-bottom: 15px;
+    }
+
+    .hero p {
+      font-size: 18px;
+      max-width: 700px;
+      margin: auto;
+      margin-bottom: 30px;
+    }
+
+    .btn {
+      display: inline-block;
+      background: var(--secondary);
+      color: white;
+      padding: 12px 30px;
+      border-radius: 30px;
+      font-weight: 500;
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
+
+    .btn:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+    }
+
+    /* ================= SECTIONS ================= */
+    section {
+      padding: 80px 20px;
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: auto;
+    }
+
+    .section-title {
+      text-align: center;
+      margin-bottom: 50px;
+    }
+
+    .section-title h2 {
+      font-size: 32px;
+      color: var(--primary);
+      margin-bottom: 10px;
+    }
+
+    .section-title p {
+      color: var(--gray);
+    }
+
+    /* ================= ABOUT ================= */
+    .about {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 40px;
+      align-items: center;
+    }
+
+    .about img {
+      width: 100%;
+      border-radius: 15px;
+    }
+
+    /* ================= PRODUCTS ================= */
+   .product-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 30px;
+}
+
+.product-box {
+  background: #fff;
+  border-radius: 15px;
+  padding: 25px;
+  text-align: center;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.06);
+  transition: transform 0.3s ease;
+}
+
+.product-box:hover {
+  transform: translateY(-8px);
+}
+
+.product-box img {
+  width: 100%;
+  height: 180px;
+  object-fit: contain;
+  margin-bottom: 15px;
+}
+
+.product-box h3 {
+  font-size: 18px;
+  margin-bottom: 8px;
+  color: var(--primary);
+}
+
+.product-box p {
+  font-size: 14px;
+  color: var(--gray);
+  margin-bottom: 15px;
+}
+
+.btn.small {
+  padding: 8px 22px;
+  font-size: 14px;
+}
+
+/* Responsive */
+@media (max-width: 992px) {
+  .product-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 576px) {
+  .product-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+
+    /* ================= QUALITY ================= */
+    .quality {
+      background: var(--light);
+    }
+
+    .quality-list {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 30px;
+    }
+
+    .quality-item {
+      background: white;
+      padding: 30px;
+      border-radius: 15px;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.05);
+    }
+
+    /* ================= CONTACT ================= */
+    .contact {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 40px;
+    }
+
+    .contact form input,
+    .contact form textarea {
+      width: 100%;
+      padding: 12px;
+      margin-bottom: 15px;
+      border-radius: 8px;
+      border: 1px solid #ddd;
+    }
+
+    /* ================= FOOTER ================= */
+    footer {
+      background: var(--primary);
+      color: white;
+      padding: 40px 20px;
+      text-align: center;
+    }
+
+    footer p {
+      font-size: 14px;
+      opacity: 0.9;
+    }
+
+    /* ================= RESPONSIVE ================= */
+    @media(max-width: 768px) {
+      .hero h1 { font-size: 32px; }
+    }
+    /* ================= WhatsApp ================= */
+		.btn.whatsapp {
+	  background: #25D366;
+	}
+
+	.btn.whatsapp:hover {
+	  background: #1ebe5d;
+	}
+/* ================= HERO SLIDER ================= */
+    .hero-slider {
+      position: relative;
+      height: 85vh;
+      overflow: hidden;
+    }
+
+    .slides {
+      height: 100%;
+      position: relative;
+    }
+
+    .slide {
+      position: absolute;
+      inset: 0;
+      background-size: cover;
+      background-position: center;
+      opacity: 0;
+      transition: opacity 1s ease-in-out;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      text-align: center;
+      padding: 20px;
+    }
+
+    .slide.active {
+      opacity: 1;
+      z-index: 1;
+    }
+
+    .hero-content h1 {
+      font-size: 42px;
+      margin-bottom: 15px;
+    }
+
+    .hero-content p {
+      font-size: 18px;
+      max-width: 700px;
+      margin: auto;
+      margin-bottom: 30px;
+    }
+	
+
+</style>
 </head>
 <body>
 
 <header>
-  <div style="display: flex; align-items: center; justify-content: center; gap: 20px;">
-    <img src="logo.jpeg" alt="SNP Pharmaceuticals Logo" style="height:80px; width:auto;">
-    <div>
-      <h1 style="margin: 0;">SNP Pharmaceutical</h1>
-      <p style="margin: 5px 0 0;">Leading Pharmaceutical Company in India</p>
-      <p style="margin: 0;">Trusted Partner in Healthcare & Pharmaceutical Solutions</p>
-    </div>
+  <div class="nav">
+    <div class="logo">SNP Pharmaceutical</div>
+    <ul>
+      <li><a href="#">Home</a></li>
+      <li><a href="#about">About</a></li>
+      <li><a href="#products">Products</a></li>
+      <li><a href="#quality">Quality</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
   </div>
 </header>
 
-<nav>
-  <a href="#about">About Us</a>
-  <a href="#products">Products</a>
-  <a href="#contact">Contact</a>
-</nav>
+<section class="hero-slider">
+  <div class="slides">
+  
+    <div class="slide active" style="background-image: linear-gradient(rgba(10,77,162,0.85), rgba(10,77,162,0.85)), url('https://images.unsplash.com/photo-1582719478250-c89cae4dc85b');">
+    
+	  <div class="hero-content">
+        <h1>Trusted Healthcare Solutions</h1>
+        <p>Delivering high-quality pharmaceutical products with innovation, safety, and care.</p>
+        <a href="#products" class="btn">Explore Products</a>
+      </div>
+    </div>
+	<div class="slide" style="background-image: linear-gradient(rgba(10,77,162,0.85), rgba(10,77,162,0.85)), url('images/aceclopfenac_tab.jpeg');">
+	  <div class="hero-content">
+		<h1>New Product Launch</h1>
+		<p>Advanced formulations for modern healthcare needs.</p>
+		<a href="#contact" class="btn">Enquire Now</a>
+	  </div>
+	</div>
+    <div class="slide" style="background-image: linear-gradient(rgba(10,77,162,0.85), rgba(10,77,162,0.85)), url('images/allProduct.jpeg');">
+      <div class="hero-content">
+        <h1>Our Products</h1>
+        <p hidden>Advanced formulations for modern healthcare needs.</p>
+        <a href="#contact" class="btn">Enquire Now</a>
+      </div>
+    </div>
+	
+    <div class="slide" style="background-image: linear-gradient(rgba(10,77,162,0.85), rgba(10,77,162,0.85)), url('https://images.unsplash.com/photo-1576671081837-49000212a370');">
+      <div class="hero-content">
+        <h1>Quality You Can Trust</h1>
+        <p>WHO-GMP compliant manufacturing standards.</p>
+        <a href="#quality" class="btn">Our Quality</a>
+      </div>
+    </div>
+  </div>
+</section>
 
 <section id="about">
-  <h2>About Us</h2>
-  <p>SNP Pharmaceutical Private Limited is committed to delivering high-quality healthcare products and pharmaceutical solutions. With a focus on innovation, safety, and trust, we aim to improve the well-being of communities by providing reliable medicines.</p>
+  <div class="container">
+    <div class="section-title">
+      <h2>About Us</h2>
+      <p>Committed to quality healthcare</p>
+    </div>
+    <div class="about">
+      <div>
+        <p>SNP Pharmaceutical is dedicated to manufacturing and supplying safe, effective, and affordable medicines. Our focus is innovation, quality assurance, and long-term trust.</p>
+      </div>
+      <img src="https://images.unsplash.com/photo-1581091870622-1c6c6c1d1d49" alt="Lab" />
+    </div>
+  </div>
 </section>
 
 <section id="products">
-  <h2>Our Products</h2>
-
-  <!-- Syrups -->
-  <div class="product-category">
-    <h3>Syrups</h3>
-    <div class="slider-container">
-      <button class="arrow left" onclick="scrollSlider(this, -300)">&#10094;</button>
-      <div class="slider">
-        <img src="images/snpzyme.jpg" alt="SNPZYME Syrup">
-        <img src="images/aminoedge.jpg" alt="AminoEdge Syrup">
-        <img src="images/spancidox.jpg" alt="SNPgesic-MF Syrup">
-      </div>
-      <button class="arrow right" onclick="scrollSlider(this, 300)">&#10095;</button>
+  <div class="container">
+    <div class="section-title">
+      <h2>Our Products</h2>
+      <p>Complete pharmaceutical product range</p>
     </div>
-    <details><summary>SNPZYME Syrup</summary><p>Description of SNPZYME Syrup.</p></details>
-    <details><summary>AminoEdge Syrup</summary><p>Description of AminoEdge Syrup.</p></details>
-    <details><summary>SNPgesic-MF Syrup</summary><p>Description of SNPgesic-MF Syrup.</p></details>
-  </div>
 
-  <!-- Tablets -->
-  <div class="product-category">
-    <h3>Tablets</h3>
-    <div class="slider-container">
-      <button class="arrow left" onclick="scrollSlider(this, -300)">&#10094;</button>
-      <div class="slider">
-        <img src="images/SNPGesic_SP_Tab_1.png" alt="SNPgesic-P Tablet">
-        <img src="images/front_SNPGesicSP.png" alt="SNPgesic-P Tablet">
-        <img src="images/1RabPrashield_DSR_Tab.png" alt="RABPRASHIELD-DSR TABLET">
-        <img src="images/snpres-mf.jpg" alt="SNPREST-MF Tablet">
-        <img src="images/spanciclav.jpg" alt="SPANCICLAVE-625 Tablet">
-        <img src="images/spancixef.jpg" alt="SPAN CIXEF 200 Tablet">
-        <img src="images/snpresicsp.jpg" alt="SNPgesic-SP Tablet">
-        <img src="images/shpkast.jpg" alt="SNPkast-L Tablet">
-        
+    <div class="product-grid">
+
+      <!-- Product 1 -->
+      <div class="product-box">
+        <img src="images/products/aceclopfenac_tab.jpeg" alt="SNPgesic-P">
+        <h3>SNPgesic-P</h3>
+        <p>Aceclofenac Tablets</p>
+		<a href="https://wa.me/8527603563?text=Hi Please provide more details of SNPgesic-P"
+		  class="btn small whatsapp"
+		  target="_blank"
+		>
+		  WhatsApp
+		</a>
       </div>
-      <button class="arrow right" onclick="scrollSlider(this, 300)">&#10095;</button>
-    </div>
-    <details><summary>SNPREST-MF Tablet</summary><p>Description of SNPREST-MF Tablet.</p></details>
-    <details><summary>SPANCICLAVE-625 Tablet</summary><p>Description of SPANCICLAVE-625 Tablet.</p></details>
-    <details><summary>SPANCIXEF-200 TABLET </summary><p>Description of SPANCIXEF-200 TABLET.</p></details>
-    <details><summary>SNPgesic-P Tablet</summary><p>Description of SNPgesic-P Tablet.</p></details>
-    <details><summary>SNPgesic-SP Tablet</summary><p>Description of SNPgesic-SP Tablet.</p></details>
-    <details><summary>SNPkast-L Tablet</summary><p>Description of SNPkast-L Tablet.</p></details>
-    <details><summary>RABPRASHIELD-20 TABLET</summary><p>Description of RABPRASHIELD-20 TABLET.</p></details>
-  </div>
 
-  <!-- Capsules -->
-  <div class="product-category">
-    <h3>Capsules</h3>
-    <div class="slider-container">
-      <button class="arrow left" onclick="scrollSlider(this, -300)">&#10094;</button>
-      <div class="slider">
-        <img src="images/rabprashield-dsr.jpg" alt="RABPRASHIELD-DSR CAPSULE">
+      <!-- Product 2 -->
+      <div class="product-box">
+        <img src="images/products/amino_syrup.jpeg" alt="AminoEdge">
+        <h3>AminoEdge</h3>
+        <p>Amino Acid with Antioxidants Syrup</p>
+		<a href="https://wa.me/8527603563?text=Hi Please provide more details of AminoEdge"
+		  class="btn small whatsapp"
+		  target="_blank"
+		>
+		  WhatsApp
+		</a>
       </div>
-      <button class="arrow right" onclick="scrollSlider(this, 300)">&#10095;</button>
-    </div>
-    <details><summary>RABPRASHIELD-DSR CAPSULE</summary><p>Description of RABPRASHIELD-DSR CAPSULE.</p></details>
-  </div>
 
+      <!-- Product 3 -->
+      <div class="product-box">
+        <img src="images/products/amoxycillin_tab.jpeg" alt="amoxycillin Tablets">
+        <h3>SPANCICLAV CV-625</h3>
+        <p>Amoxycillin And Pottasium Tablets</p>
+		<a href="https://wa.me/8527603563?text=Hi Please provide more details of SPANCICLAV CV-625"
+		  class="btn small whatsapp"
+		  target="_blank"
+		>
+		  WhatsApp
+		</a>
+      </div>
+
+      <!-- Product 4 -->
+      <div class="product-box">
+        <img src="images/products/montelukast_tab.jpeg" alt="montelukast Tablets">
+        <h3>SNPkast-L</h3>
+        <p>Montelukast Tablets</p>
+		<a href="https://wa.me/8527603563?text=Hi Please provide more details of SNPkast-L"
+		  class="btn small whatsapp"
+		  target="_blank">
+		  WhatsApp
+		</a>
+      </div>
+
+      <!-- Product 5 -->
+      <div class="product-box">
+        <img src="images/products/rabeprazole_capsules.jpeg" alt="Rebeprazole Sodium(EC) & Domperidone (SR) Capsules">
+        <h3>Rabprashield DSR</h3>
+        <p>Rebeprazole Sodium(EC) & Domperidone (SR) Capsules</p>
+		<a href="https://wa.me/8527603563?text=Hi Please provide more details of Rabprashield DSR"
+		  class="btn small whatsapp"
+		  target="_blank">
+		  WhatsApp
+		</a>
+      </div>
+
+      <!-- Product 6 -->
+      <div class="product-box">
+        <img src="images/products/rabeprazole_tab2.jpeg" alt="rabeprazole Tablets">
+        <h3>Rabprashield-20</h3>
+        <p>Rabeprazole Tablets IP 25mg</p>
+		<a href="https://wa.me/8527603563?text=Hi Please provide more details of Rabprashield-20"
+		  class="btn small whatsapp"
+		  target="_blank">
+		  WhatsApp
+		</a>
+      </div>
+
+      <!-- Product 7 -->
+      <div class="product-box">
+        <img src="images/products/aceclopfenac_tab.jpeg" alt="Aceclofenac Tablets">
+        <h3>SNPgesic-P</h3>
+        <p>Aceclofenac Paracetamol Tablets</p>
+		<a href="https://wa.me/8527603563?text=Hi Please provide more details of SNPgesic-P"
+		  class="btn small whatsapp"
+		  target="_blank">
+		  WhatsApp
+		</a>
+      </div>
+
+      <!-- Product 8 -->
+      <div class="product-box">
+        <img src="images/products/snp_zyme_syrup.jpeg" alt="SNPZYME Syrup">
+        <h3>SNPZYME Syrup</h3>
+        		<a href="https://wa.me/8527603563?text=Hi Please provide more details of SNPZYME Syrup"
+		  class="btn small whatsapp"
+		  target="_blank">
+		  WhatsApp
+		</a>
+      </div>
+
+      <!-- Product 9 -->
+      <div class="product-box">
+        <img src="images/products/spancidox_syrup.jpeg" alt="Spaincidox Dry Syrup">
+        <h3>Spaincidox Dry Syrup</h3>
+        <p>Cefdomoxime Proxetil</p>
+		<a href="https://wa.me/8527603563?text=Hi Please provide more details of Spaincidox Dry Syrup"
+		  class="btn small whatsapp"
+		  target="_blank">
+		  WhatsApp
+		</a>
+      </div>
+	  
+    </div>
+  </div>
+</section>
+
+
+<section id="quality" class="quality">
+  <div class="container">
+    <div class="section-title">
+      <h2>Quality & Certifications</h2>
+      <p>We follow strict quality standards</p>
+    </div>
+    <div class="quality-list">
+      <div class="quality-item">WHO-GMP Certified Manufacturing</div>
+      <div class="quality-item">Rigorous Quality Control</div>
+      <div class="quality-item">Modern R&D Facilities</div>
+    </div>
+  </div>
 </section>
 
 <section id="contact">
-  <h2>Contact Us</h2>
-  <p><strong>Email:</strong> info.snppharmaceutical@gmail.com</p>
-  <p><strong>Phone:</strong> +91 8527603563</p>
-  <p><strong>Address:</strong> H No 103 G No 1 E/2 Block Jagmal Enclave, Agwanpur, Faridabad, Haryana 121003</p>
-  <p><strong>Website:</strong> www.snppharmaceutical.com</p>
-
-  <h3>Enquiry Form</h3>
-    <form action="https://formspree.io/f/mkgveqje" method="POST">
-  <label for="name">Name:</label>
-  <input type="text" name="name" required>
-
-  <label for="email">Email:</label>
-  <input type="email" name="_replyto" required>
-
-  <label for="phone">Phone:</label>
-  <input type="text" name="phone">
-
-  <label for="message">Message:</label>
-  <textarea name="message" rows="5" required></textarea>
-
-  <button type="submit">Send Enquiry</button>
-</form>
+  <div class="container">
+    <div class="section-title">
+      <h2>Contact Us</h2>
+      <p>We’d love to hear from you</p>
+    </div>
+    <div class="contact">
+      <div>
+        <p><strong>Email:</strong> info@snppharmaceutical.com</p>
+        <p><strong>Phone:</strong> +91-8527603563</p>
+        <p><strong>Address:</strong> India</p>
+      </div>
+      <form>
+        <input type="text" placeholder="Your Name" required />
+        <input type="email" placeholder="Your Email" required />
+        <textarea rows="4" placeholder="Message"></textarea>
+        <button class="btn" type="submit">Send Message</button>
+      </form>
+    </div>
+  </div>
 </section>
 
 <footer>
-  <p>&copy; 2025 SNP Pharmaceutical Pvt Ltd. All Rights Reserved.</p>
+  <p>© 2026 SNP Pharmaceutical. All Rights Reserved.</p>
 </footer>
 
 <script>
-function scrollSlider(button, amount) {
-  const slider = button.parentElement.querySelector('.slider');
-  slider.scrollBy({ left: amount, behavior: 'smooth' });
-}
+  const slides = document.querySelectorAll('.slide');
+  let currentSlide = 0;
+
+  function showSlide(index) {
+    slides.forEach((slide, i) => {
+      slide.classList.toggle('active', i === index);
+    });
+  }
+
+  setInterval(() => {
+    currentSlide = (currentSlide + 1) % slides.length;
+    showSlide(currentSlide);
+  }, 5000); // change slide every 5 seconds
 </script>
 
 </body>
 </html>
+
